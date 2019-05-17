@@ -51,10 +51,10 @@ echo Updating initramfs...
 update-initramfs -u
 mkinitramfs -o /boot/init.gz
 
-if ! grep -q "root-ro-driver=overlay" /boot/cmdline.txt; then
-  echo Adding root-ro-driver parameter to /boot/cmdline.txt
-  sed -i "1 s|$| root-ro-driver=overlay|" /boot/cmdline.txt
+if ! cat /boot/boot.ini | grep "setenv bootargs" | grep -q "root-ro-driver=overlay"; then
+  echo Adding root-ro-driver parameter to /boot/boot.ini env bootargs
+  sed -i 's|setenv bootargs "|setenv bootargs "root-ro-driver=overlay |' /boot/boot.ini
 fi
 
-echo Restarting RPI
+echo Restarting Odroid
 reboot
