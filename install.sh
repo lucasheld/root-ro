@@ -12,9 +12,9 @@ fi
 echo Creating initramfs...
 mkinitramfs -o /boot/init.gz
 
-if ! grep -q "^initramfs " /boot/config.txt; then
-  echo Adding \"initramfs init.gz\" to /boot/config.txt
-  echo initramfs init.gz >> /boot/config.txt
+if ! grep -q "^initramfs " /boot/boot.ini; then
+  echo Adding \"initramfs init.gz\" to /boot/boot.ini
+  echo initramfs init.gz >> /boot/boot.ini
 fi
 
 if ! grep -q "^overlay" /etc/initramfs-tools/modules; then
