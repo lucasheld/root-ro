@@ -24,6 +24,9 @@ fi
 
 
 
+echo Installing requirements
+apt-get install dphys-swapfile
+
 echo Disabling swap, we dont want swap files in a read-only root filesystem...
 dphys-swapfile swapoff
 dphys-swapfile uninstall
