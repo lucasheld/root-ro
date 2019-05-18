@@ -1,5 +1,8 @@
 # Read-only root filesystem for Odroid C1 running Debian Stretch
 
+This script does not work on the official images from hardkernel since overlayfs requires kernel 3.18 or higher.
+Used image: `Armbian_5.84_Odroidc1_Debian_stretch_next_5.0.12.img`
+
 ## Setup
 ```
 sudo apt-get -y install git
